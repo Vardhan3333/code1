@@ -1,0 +1,16 @@
+# Use a base image with Java
+FROM openjdk:latest
+
+# Set the working directory
+# WORKDIR /app
+
+# Copy the generated JAR file into the container at /app
+#COPY target/chargingstation.jar /app
+EXPOSE 8080
+ADD target/chargingstation.jar chargingstation.jar
+
+# Your additional configuration, expose ports, etc.
+#EXPOSE 8080
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "/chargingstation.jar"]
